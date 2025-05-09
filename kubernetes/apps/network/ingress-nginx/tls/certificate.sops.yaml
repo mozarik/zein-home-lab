@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/certificate_v1.json
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: zeinfahrozi-my-id-production
+spec:
+  secretName: zeinfahrozi-my-id-production-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: zeinfahrozi.my.id
+  dnsNames:
+    - zeinfahrozi.my.id
+    - '*.zeinfahrozi.my.id'
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age16t95qykfyja0lye0fnws6d5204ecj7j84ak7fx4rt43xvyusmpeq3uuxjh
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKSXpwUzZQMkRRYUJWVDRP
+        UWxFUHB1bFZpbHBYSXI3QXZJTnZwVkQyd1hVCmptTWlWK1R0bVJaQWVEQkt6bFBD
+        YjNrV1pWcEs2a25xVlF5L2pxRS8ySGsKLS0tIGNYSXp4Y0tUY045dnFQc2xaOFpx
+        YzdPUVRnMTZNckh6ZFZwWDRLNVNETDAKX+S2gA3HZKK/UoPS6ps0cOg5TCUntoTp
+        eTBJDjqzSG6dD+lxQyUhoEPLn8Z5z4x2FC0z1XllwhiIoRJmiQGAcQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-05-09T23:59:27Z"
+  mac: ENC[AES256_GCM,data:W7hUU7BPYje1HiFHBHcuEIHjyA5xeBNmOnQFEvlR1fJ+8C26S0TA2Ll4Y15N5qRYBGUJqst0JlDoEz1vdUwur6NS//1b2z3wdSWM91AmLMy6qf9Drf/3UdS5ig1wTYNCIHBzDWednd14b0G4NW4dAJxDMBGqJXpmrY89MGwawRE=,iv:vNCf8JTwlhJU9SjaqfrdNNJOVJbdoMvU0iDn8U66gcI=,tag:0Vgdz2ujs/QZDRwRNUhzwA==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.9.4

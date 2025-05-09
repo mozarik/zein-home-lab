@@ -1,3 +1,5 @@
+cloudflare token = Zko47zpukZnlbp5yU1ZD5B6cvQp7mp-He3AgJl6A
+
 # ⛵ Cluster Template
 
 Welcome to my minimalist template for deploying a single Kubernetes cluster. The goal of this project is to make it easier for people interested in using Kubernetes to deploy a cluster at home on bare-metal or VMs. This template closely mirrors my personal [onedr0p/cluster-template](https://github.com/onedr0p/cluster-template) repository. At a high level this project makes use of [makejinja](https://github.com/mirkolenz/makejinja) to read in configuration files ([cluster.yaml](./cluster.sample.yaml) & [nodes.yaml](./nodes.sample.yaml)). Makejinja will render out templates that will allow you to install a Kubernetes cluster with the features mentioned below.
@@ -40,7 +42,7 @@ There are **5 stages** outlined below for completing this project, make sure you
 4. Verify with `nmap` that your nodes are available on the network. (Replace `192.168.1.0/24` with the network your nodes are on.)
 
     ```sh
-    nmap -Pn -n -p 50000 192.168.1.0/24 -vv | grep 'Discovered'
+    nmap -Pn -n -p 50000 192.168.0.1/24 -vv | grep 'Discovered'
     ```
 
 ### Stage 2: Local Workstation

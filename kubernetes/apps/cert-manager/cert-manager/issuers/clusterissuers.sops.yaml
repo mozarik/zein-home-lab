@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/clusterissuer_v1.json
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cert-manager-secret
+              key: api-token
+        selector:
+          dnsZones:
+            - zeinfahrozi.my.id
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age16t95qykfyja0lye0fnws6d5204ecj7j84ak7fx4rt43xvyusmpeq3uuxjh
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBL1NXWlY1TlU1RS85Mm5K
+        Qk1UZ3BnaUpLeWZHWml3U0E3Z2creXZqamxVClFDRmFQL1NVZG82OWVhNzZyNkh4
+        QW81dGFLSVZOZ0RmZ3o4d1kyMmEwMXcKLS0tIDIyRGozdXp6bW9ZQVphNUNXWGI5
+        RTg0Yy85TTdVQW5SeEptSmx1eCsxQ2MKEjbU9NI3CGu+JRFH23dTg8IM+th1Wbro
+        WcWG3E9oI3jJsDYWgx+1zQXXqMbooVYEh768mjipy4Z0iXFgwCASnA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-05-09T23:59:27Z"
+  mac: ENC[AES256_GCM,data:TS9ubjCK/KFLAhqgRrwlQ1d52YS7VBV2NWenNdq9o8gT9wMu+guynITU7rHe1s3VwQcPyAtbiT3HJzUaQjTXCTwx9aP4uN8cuBClt1OglX5wLoxjnT0GHzTTO+tC752HGdoF1Y5t9oecsQwwjs3Yl9YgA0ATD26gRK1fmcQww9M=,iv:ln8KtSWi8Is+SVn2d+lJvNnh0bac2NvIxCqxzUOhe7w=,tag:qbVdqXNtGyzzSm/EXXhtnA==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.9.4
