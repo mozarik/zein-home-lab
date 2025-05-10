@@ -19,12 +19,12 @@ cniConfig:
   name: none
 
 nodes:
-  - hostname: "kube-cp-1"
+  - hostname: "kube-control-1"
     ipAddress: "192.168.0.200"
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
+    talosImageURL: ghcr.io/siderolabs/installer
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -43,7 +43,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
+    talosImageURL: ghcr.io/siderolabs/installer
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
@@ -51,23 +51,6 @@ nodes:
         dhcp: false
         addresses:
           - "192.168.0.201/24"
-        routes:
-          - network: "0.0.0.0/0"
-            gateway: "192.168.0.1"
-        mtu: 1500
-  - hostname: "kube-worker-2"
-    ipAddress: "192.168.0.202"
-    installDisk: "/dev/sda"
-    machineSpec:
-      secureboot: false
-    talosImageURL: factory.talos.dev/installer/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515
-    controlPlane: false
-    networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "de:ad:be:ef:00:03"
-        dhcp: false
-        addresses:
-          - "192.168.0.202/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "192.168.0.1"

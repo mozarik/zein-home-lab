@@ -33,7 +33,7 @@ nodes:
     #% endif %#
     machineSpec:
       secureboot: #{ (true if item.secureboot else false) | string | lower }#
-    talosImageURL: factory.talos.dev/installer#{ "-secureboot" if item.secureboot | default(false, true) }#/#{ item.schematic_id }#
+    talosImageURL: ghcr.io/siderolabs/installer
     controlPlane: #{ (item.controller) | string | lower }#
     networkInterfaces:
       - deviceSelector:

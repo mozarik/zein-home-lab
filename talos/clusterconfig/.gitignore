@@ -1,0 +1,3 @@
+kubernetes-kube-control-1.yaml
+kubernetes-kube-worker-1.yaml
+talosconfig
